@@ -14,4 +14,9 @@ export const getLoaded = createSelector(
   state => state.loaded
 );
 
+export const getSelectedProduct = createSelector(
+  getProductFeatureState,
+  state => state.selectedProduct
+);
+
 

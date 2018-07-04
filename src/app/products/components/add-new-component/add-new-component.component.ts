@@ -1,11 +1,13 @@
-import {Component, OnInit} from '@angular/core';
-import {Store} from "@ngrx/store";
+import {Component, OnChanges, OnInit, SimpleChanges} from '@angular/core';
+import {select, Store} from "@ngrx/store";
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 import * as fromApp from "../../../app.state";
+import * as fromProduct from "../../state";
 import {Product} from "../../product";
 import {ProductService} from "../../product.service";
 import {CreateProduct} from "../../state/product.action";
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {Observable} from "rxjs/internal/Observable";
 
 
 @Component({
@@ -16,6 +18,8 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 export class AddNewComponentComponent implements OnInit {
   product: Product;
   productForm: FormGroup;
+  product$:Observable<Product>;
+
 
   constructor(private store: Store<fromApp.AppState>,
               private fb: FormBuilder,
@@ -30,8 +34,10 @@ export class AddNewComponentComponent implements OnInit {
   }
 
   ngOnInit() {
-
+    this.product$ = this.store.pipe(select(fromProduct.getSelectedProduct))
   }
+
+
 
   onAdded() {
     this.product = this.productForm.value;

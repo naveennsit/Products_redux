@@ -1,6 +1,7 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {StoreModule} from "@ngrx/store";
+import {ReactiveFormsModule} from "@angular/forms";
 
 
 import {ProductReducer} from "./state/product.reducer";
@@ -10,10 +11,10 @@ import {EffectsModule} from "@ngrx/effects";
 import {ProductEffect} from "./state/product.effect";
 import { ListComponentComponent } from './components/list-component/list-component.component';
 import { AddNewComponentComponent } from './components/add-new-component/add-new-component.component';
-import {ReactiveFormsModule} from "@angular/forms";
 
 const productRoutes: Routes = [
-  {path:'new',component: AddNewComponentComponent}
+  {path:'new',component: AddNewComponentComponent},
+  {path:'edit',component: AddNewComponentComponent}
 ];
 @NgModule({
   imports: [

@@ -9,6 +9,7 @@ import * as fromApp from "../../../app.state"
 import * as productActions from "../../state/product.action"
 import {Product} from "../../product";
 import {EditProductInterface} from "../../components/list-component/list-component.component";
+import {Router} from "@angular/router";
 
 
 @Component({
@@ -20,6 +21,7 @@ export class ProductShellComponent implements OnInit {
   products$: Observable<Product[]>;
 
   constructor(private productService: ProductService,
+              private router :Router,
               private store: Store<fromApp.AppState>) {
   }
 
@@ -30,8 +32,8 @@ export class ProductShellComponent implements OnInit {
   }
 
   handleEditButtonHandler(editProduct: EditProductInterface) {
-   console.log(editProduct);
    this.store.dispatch(new productActions.EditProduct(editProduct));
+   this.router.navigate(['edit'])
   }
 
   handleDeleteButtonHandler(product:Product){
