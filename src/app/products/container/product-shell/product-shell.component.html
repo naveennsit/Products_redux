@@ -1,0 +1,5 @@
+<app-list-component
+  (editProduct)="handleEditButtonHandler($event)"
+   (deleteProduct)="handleDeleteButtonHandler($event)"
+  [products]="products$ | async">
+</app-list-component>

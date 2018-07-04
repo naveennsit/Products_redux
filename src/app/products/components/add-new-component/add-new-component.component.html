@@ -1,0 +1,28 @@
+<div>
+  <form novalidate (ngSubmit)="onAdded()" [formGroup]="productForm">
+    <div>
+      <label>ID</label>
+      <input type="text" name="id" #id formControlName="id">
+    </div>
+    <div>
+      <label>Description</label>
+      <input type="text" #des formControlName="description">
+    </div>
+    <div>
+      <label>productName</label>
+      <input type="text" #prodName formControlName="productName">
+    </div>
+    <div>
+      <label>productCode</label>
+      <input type="text" #prodCode formControlName="productCode">
+    </div>
+    <div>
+      <label>starRating</label>
+      <input type="text" #prodRating formControlName="starRating">
+    </div>
+    <button  type="submit" [disabled]="!productForm.valid || !productForm.dirty">
+      Save
+    </button>
+  </form>
+</div>
+

@@ -1,0 +1,7 @@
+ul{
+  list-style: none;
+}
+ul li {
+  background: #4d4d4d;
+  color: #ffffff;
+}
