@@ -34,7 +34,11 @@ export class AddNewComponentComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.product$ = this.store.pipe(select(fromProduct.getSelectedProduct))
+    this.store.pipe(select(fromProduct.getSelectedProduct)).subscribe((res:Product)=>{
+      if(res) {
+        this.productForm.patchValue(res);
+      }
+    })
   }
 
 

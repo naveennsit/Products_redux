@@ -20,7 +20,7 @@
       <label>starRating</label>
       <input type="text" #prodRating formControlName="starRating">
     </div>
-    <button  type="submit" [disabled]="!productForm.valid || !productForm.dirty">
+    <button  type="submit" [disabled]="!productForm.valid">
       Save
     </button>
   </form>
