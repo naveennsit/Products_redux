@@ -11,6 +11,7 @@ import {Product} from "../../product";
 import {EditProductInterface} from "../../components/list-component/list-component.component";
 import {Router} from "@angular/router";
 
+import {environment} from "../../../../environments/environment";
 
 @Component({
   selector: 'app-product-shell',
@@ -27,6 +28,7 @@ export class ProductShellComponent implements OnInit {
 
 
   ngOnInit() {
+    console.log(environment.production)
     this.store.dispatch(new productActions.Load());
     this.products$ = this.store.pipe(select(fromProduct.getProducts))
   }
